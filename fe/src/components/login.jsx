@@ -1,13 +1,14 @@
 import React from 'react';
 import logo from '../logo.svg';
+import { MdEmail, MdLock } from 'react-icons/md';
 
 const Login = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-6xl bg-white rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden">
+    <div className="bg-gray-50 h-screen flex items-stretch">
+      <div className="w-full bg-white rounded-lg shadow-lg flex flex-col md:flex-row overflow-hidden h-full">
         {/* Left Side - Login Form */}
-        <div className="w-full md:w-1/2 p-10 flex flex-col justify-center">
-          <div className="flex items-center mb-8">
+        <div className="w-full md:w-1/2 p-10 flex flex-col">
+          <div className="flex items-center">
             <img src={logo} alt="FinanceBot Logo" className="h-7 w-7 mr-2" />
             <span className="font-semibold text-lg text-gray-800">FinanceBot</span>
           </div>
@@ -16,11 +17,17 @@ const Login = () => {
           <form className="space-y-5">
             <div>
               <label className="block text-gray-700 text-sm mb-1">Email address</label>
-              <input type="email" placeholder="Enter your email" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400" />
+              <div className="relative flex items-center">
+                <MdEmail className="absolute left-3 text-gray-400 text-lg" />
+                <input type="email" placeholder="Enter your email" className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400" />
+              </div>
             </div>
             <div>
               <label className="block text-gray-700 text-sm mb-1">Password</label>
-              <input type="password" placeholder="Enter your password" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400" />
+              <div className="relative flex items-center">
+                <MdLock className="absolute left-3 text-gray-400 text-lg" />
+                <input type="password" placeholder="Enter your password" className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400" />
+              </div>
             </div>
             <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded-md transition">Login</button>
           </form>
@@ -29,26 +36,42 @@ const Login = () => {
           </div>
         </div>
         {/* Right Side - Phone Mockup */}
-        <div className="hidden md:flex w-1/2 items-center justify-center bg-gray-50">
+        <div className="hidden md:flex w-1/2 p-10 items-center justify-center bg-gray-50">
           <div className="relative w-64 h-[500px] flex items-center justify-center">
-            <img
-              src="https://i.imgur.com/8Km9tLL.png"
-              alt="Phone Mockup"
-              className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl shadow-lg"
-            />
-            {/* Overlay for chat UI */}
-            <div className="absolute top-10 left-1/2 -translate-x-1/2 w-56 bg-white bg-opacity-90 rounded-xl p-4 shadow-md text-xs">
-              <div className="mb-2 text-green-600 font-semibold">Hi FinanceBot 🪙</div>
-              <div className="mb-2 text-gray-700">Hey! Welcome back. What would you like to do today?</div>
-              <div className="mb-2 bg-green-100 text-green-800 rounded px-2 py-1 w-fit">Show me my financial summary</div>
-              <div className="bg-gray-100 rounded-lg p-2 mb-2">
-                <div className="font-semibold mb-1">Weekly Summary</div>
-                <div className="flex items-center justify-between mb-1"><span>🍔 Food:</span><span>$120</span></div>
-                <div className="flex items-center justify-between mb-1"><span>🚌 Transport:</span><span>$45</span></div>
-                <div className="flex items-center justify-between mb-1"><span>🎬 Entertainment:</span><span>$60</span></div>
-                <div className="flex items-center justify-between font-bold"><span>Σ Total:</span><span>$225</span></div>
+            {/* Phone Body */}
+            <div className="absolute top-0 left-0 w-full h-full bg-white rounded-3xl shadow-lg flex flex-col overflow-hidden border border-gray-200">
+              {/* WhatsApp Header */}
+              <div className="bg-green-700 h-12 flex items-center justify-center">
+                <span className="text-white font-semibold text-sm tracking-wide">WhatsApp</span>
               </div>
-              <div className="text-red-500 text-xs">You've gone over your food budget!</div>
+              {/* Chat Area (beige/tan background, rounded, padded) */}
+              <div className="flex-1 flex flex-col justify-start items-center px-2 py-4 bg-[#f7f5f2]">
+                <div className="w-[90%] bg-[#e9e4dd] rounded-2xl p-4 flex flex-col gap-2 shadow-md mt-2">
+                  {/* Top Chat Message */}
+                  <div className="flex flex-col items-end">
+                    <div className="bg-[#d2f8c6] text-gray-800 rounded-lg px-3 py-1.5 text-xs font-medium shadow max-w-[80%]">Hi FinanceBot 🪙</div>
+                  </div>
+                  {/* Bot Message */}
+                  <div className="flex flex-col items-start">
+                    <div className="bg-white text-gray-800 rounded-lg px-3 py-1.5 text-xs shadow max-w-[80%]">Hey! Welcome back. What would you like to do today?</div>
+                  </div>
+                  {/* User Message */}
+                  <div className="flex flex-col items-end">
+                    <div className="bg-[#d2f8c6] text-gray-800 rounded-lg px-3 py-1.5 text-xs font-medium shadow max-w-[80%]">Show me my financial summary</div>
+                  </div>
+                  {/* Bot Summary Card (with warning inside) */}
+                  <div className="flex flex-col items-start">
+                    <div className="bg-white rounded-xl px-3 py-2 shadow text-xs max-w-full">
+                      <div className="font-semibold mb-1 flex items-center gap-1">📊 <span>Weekly Summary</span></div>
+                      <div className="flex items-center justify-between mb-1"><span>🍔 Food:</span><span>$120</span></div>
+                      <div className="flex items-center justify-between mb-1"><span>🚌 Transport:</span><span>$45</span></div>
+                      <div className="flex items-center justify-between mb-1"><span>🎬 Entertainment:</span><span>$60</span></div>
+                      <div className="flex items-center justify-between font-bold border-t border-gray-100 pt-1 mt-1"><span>🔴 Total:</span><span>$225</span></div>
+                      <div className="mt-2 text-[11px] bg-red-50 text-red-500 rounded px-2 py-1">You've gone over your food budget goal of $100. Try to spend less!</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
