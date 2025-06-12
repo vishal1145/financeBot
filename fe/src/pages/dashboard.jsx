@@ -182,30 +182,60 @@ const Dashboard = () => {
               className={`relative rounded-xl shadow p-5 h-28 flex flex-col justify-between bg-gradient-to-br ${card.gradient}`}
             >
               <div className="flex items-start justify-between">
-                <div>
-                  <div className="text-white text-sm font-medium mb-1">{card.label}</div>
-                  <div className="text-2xl font-bold text-white">{card.value}</div>
-                </div>
-                <div className="text-white opacity-90 absolute top-4 right-4">{card.icon}</div>
+                <div className="text-white text-sm font-medium">{card.label}</div>
+                <div className="text-white opacity-90 flex items-center justify-center">{card.icon}</div>
               </div>
-              
+              <div className="flex items-end justify-between mt-2">
+                <div className="text-2xl font-bold text-white">{card.value}</div>
+                <span className="text-xs font-semibold text-white">{card.change}</span>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Analytics Charts */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          <div className="bg-white rounded-lg shadow p-4">
-            <div className="font-semibold text-gray-700 mb-2">Weekly Active</div>
-            <Line data={chartData} options={{ plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }} height={120} />
+          {/* Weekly Active Users */}
+          <div className="bg-white rounded-xl shadow p-6">
+            <div className="font-semibold text-gray-700 mb-1">Weekly Active Users</div>
+            <div className="flex space-x-2 mb-2">
+              <button className="px-2 py-0.5 rounded text-xs font-medium bg-transparent text-gray-400">Day</button>
+              <button className="px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-600">Week</button>
+              <button className="px-2 py-0.5 rounded text-xs font-medium bg-transparent text-gray-400">Month</button>
+              <button className="px-2 py-0.5 rounded text-xs font-medium bg-transparent text-gray-400">Custom</button>
+            </div>
+            <Line data={{
+              ...chartData,
+              datasets: [{ ...chartData.datasets[0], borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,0.1)' }],
+            }} options={{ plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }} height={120} />
           </div>
-          <div className="bg-white rounded-lg shadow p-4">
-            <div className="font-semibold text-gray-700 mb-2">Sleep Score</div>
-            <Line data={sleepData} options={{ plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }} height={120} />
+          {/* Sleep Score Trend */}
+          <div className="bg-white rounded-xl shadow p-6">
+            <div className="font-semibold text-gray-700 mb-1">Sleep Score Trend</div>
+            <div className="flex space-x-2 mb-2">
+              <button className="px-2 py-0.5 rounded text-xs font-medium bg-transparent text-gray-400">Day</button>
+              <button className="px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-600">Week</button>
+              <button className="px-2 py-0.5 rounded text-xs font-medium bg-transparent text-gray-400">Month</button>
+              <button className="px-2 py-0.5 rounded text-xs font-medium bg-transparent text-gray-400">Custom</button>
+            </div>
+            <Line data={{
+              ...sleepData,
+              datasets: [{ ...sleepData.datasets[0], borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.1)' }],
+            }} options={{ plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }} height={120} />
           </div>
-          <div className="bg-white rounded-lg shadow p-4">
-            <div className="font-semibold text-gray-700 mb-2">HRV Trend</div>
-            <Line data={hrvData} options={{ plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }} height={120} />
+          {/* HRV Trend */}
+          <div className="bg-white rounded-xl shadow p-6">
+            <div className="font-semibold text-gray-700 mb-1">HRV Trend</div>
+            <div className="flex space-x-2 mb-2">
+              <button className="px-2 py-0.5 rounded text-xs font-medium bg-transparent text-gray-400">Day</button>
+              <button className="px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-600">Week</button>
+              <button className="px-2 py-0.5 rounded text-xs font-medium bg-transparent text-gray-400">Month</button>
+              <button className="px-2 py-0.5 rounded text-xs font-medium bg-transparent text-gray-400">Custom</button>
+            </div>
+            <Line data={{
+              ...hrvData,
+              datasets: [{ ...hrvData.datasets[0], borderColor: '#f59e42', backgroundColor: 'rgba(245,158,66,0.1)' }],
+            }} options={{ plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }} height={120} />
           </div>
         </div>
 
