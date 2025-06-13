@@ -1,5 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
+// import { Link } from 'react-router-dom';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -155,23 +156,24 @@ const Dashboard = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Top Navbar */}
-      <nav className="bg-white shadow flex items-center justify-between px-6 py-3">
+
+      {/* <nav className="bg-white shadow flex items-center justify-between px-6 py-3">
         <div className="flex items-center space-x-4">
           <span className="font-bold text-xl text-blue-600">Sigma Life</span>
           <div className="hidden md:flex space-x-6 ml-8">
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Dashboard</a>
-            <a href="#" className="text-gray-500 hover:text-blue-600">Users</a>
-            <a href="#" className="text-gray-500 hover:text-blue-600">Devices</a>
-            <a href="#" className="text-gray-500 hover:text-blue-600">Analytics</a>
-            <a href="#" className="text-gray-500 hover:text-blue-600">Insights</a>
-            <a href="#" className="text-gray-500 hover:text-blue-600">Settings</a>
+            <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium">Dashboard</Link>
+            <Link to="" className="text-gray-500 hover:text-blue-600">Users</Link>
+            <Link to="" className="text-gray-500 hover:text-blue-600">Devices</Link>
+            <Link to="" className="text-gray-500 hover:text-blue-600">Analytics</Link>
+            <Link to="" className="text-gray-500 hover:text-blue-600">Insights</Link>
+            <Link to="" className="text-gray-500 hover:text-blue-600">Settings</Link>
           </div>
         </div>
         <div className="flex items-center space-x-4">
           <input type="text" placeholder="Search..." className="border rounded px-2 py-1 text-sm" />
           <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="avatar" className="h-8 w-8 rounded-full" />
         </div>
-      </nav>
+      </nav> */}
 
       {/* Stat Cards */}
       <div className="py-6 px-4 sm:px-6 lg:px-8">
@@ -287,10 +289,10 @@ const Dashboard = () => {
           <div className="flex items-center justify-between px-4 py-4 border-b">
             <h3 className="text-lg font-semibold text-gray-900">Recent Activity</h3>
             <div className="flex space-x-2">
-              <button className="flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm text-gray-700 bg-gray-50 hover:bg-gray-100">
+              {/* <button className="flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm text-gray-700 bg-gray-50 hover:bg-gray-100">
                 <svg className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707l-6.414 6.414A1 1 0 0013 14.414V19a1 1 0 01-1.447.894l-2-1A1 1 0 019 18v-3.586a1 1 0 00-.293-.707L2.293 6.707A1 1 0 012 6V4z" /></svg>
                 Filter
-              </button>
+              </button> */}
               <button className="flex items-center px-3 py-1.5 border border-gray-200 rounded-md text-sm text-gray-700 bg-gray-50 hover:bg-gray-100">
                 <svg className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" /></svg>
                 Export
@@ -299,15 +301,38 @@ const Dashboard = () => {
           </div>
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Sync</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
-                </tr>
-              </thead>
+            <thead className="bg-gray-50">
+  <tr>
+    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <div className="flex gap-2">
+        <span className="text-center py-1 ">User</span>
+        <input type="text" placeholder="Search User" className=" w-full border rounded px-2 py-1 text-xs" />
+      </div>
+    </th>
+    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <div className="flex gap-2">
+        <span className="text-center py-1 ">Email</span>
+        <input type="text" placeholder="Search Email" className=" w-full border rounded px-2 py-1 text-xs" />
+      </div>
+    </th>
+    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <div className="flex gap-2">
+        <span className="text-center py-1 ">Status</span>
+        <input type="text" placeholder="Search Status" className=" w-full border rounded px-2 py-1 text-xs" />
+      </div>
+    </th>
+    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      Last Sync
+    </th>
+    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <div className="flex gap-2">
+        <span className="text-center py-1 ">Location</span>
+        <input type="text" placeholder="Search Location" className=" w-full border rounded px-2 py-1 text-xs" />
+      </div>
+    </th>
+  </tr>
+</thead>
+
               <tbody className="bg-white divide-y divide-gray-200">
                 {recentActivity.map((item, idx) => (
                   <tr key={idx}>

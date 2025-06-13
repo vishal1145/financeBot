@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../logo.svg';
 import { MdEmail, MdLock } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -32,7 +33,9 @@ const Login = () => {
             <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded-md transition">Login</button>
           </form>
           <div className="mt-4 text-center">
-            <a href="#" className="text-xs text-gray-400 hover:underline">Forgot password?</a>
+          <Link to="#" className="text-xs text-gray-400 hover:underline">
+  Forgot password?
+</Link>
           </div>
         </div>
         {/* Right Side - Phone Mockup */}
