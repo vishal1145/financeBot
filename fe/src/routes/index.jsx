@@ -3,11 +3,16 @@ import { createBrowserRouter } from 'react-router-dom';
 import Login from '../components/Login';
 import Dashboard from '../pages/Dashboard';
 import MainLayout from '../components/MainLayout';
+import ProtectedRoute from '../components/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout />, // this wraps all routes with Navbar
+    element: (
+      <ProtectedRoute>
+        <MainLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         index: true,
