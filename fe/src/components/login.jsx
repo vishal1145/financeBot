@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../logo.svg';
+// import logo from '../logo.svg';
 import { MdEmail, MdLock } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
@@ -10,8 +10,8 @@ const Login = () => {
         {/* Left Side - Login Form */}
         <div className="w-full md:w-1/2 p-10 flex flex-col">
           <div className="flex items-center">
-            <img src={logo} alt="FinanceBot Logo" className="h-7 w-7 mr-2" />
-            <span className="font-semibold text-lg text-gray-800">FinanceBot</span>
+            {/* <img src={logo} alt="FinanceBot Logo" className="h-7 w-7 mr-2" /> */}
+            <span className="font-semibold text-lg text-gray-800">💰 FinanceBot</span>
           </div>
           <h2 className="text-2xl font-semibold mb-2">Admin Login – FinanceBot</h2>
           <p className="text-gray-500 text-sm mb-8">Monitor user activity, spending alerts, and summaries in one place.</p>
@@ -52,7 +52,7 @@ const Login = () => {
                 <div className="w-[90%] bg-[#e9e4dd] rounded-2xl p-4 flex flex-col gap-2 shadow-md mt-2">
                   {/* Top Chat Message */}
                   <div className="flex flex-col items-end">
-                    <div className="bg-[#d2f8c6] text-gray-800 rounded-lg px-3 py-1.5 text-xs font-medium shadow max-w-[80%]">Hi FinanceBot 🪙</div>
+                    <div className="bg-[#d2f8c6] text-gray-800 rounded-lg px-3 py-1.5 text-xs font-medium shadow max-w-[80%]">Hi FinanceBot 💰</div>
                   </div>
                   {/* Bot Message */}
                   <div className="flex flex-col items-start">
